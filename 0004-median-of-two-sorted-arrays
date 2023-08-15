@@ -30,7 +30,7 @@ public:
 int main(){
    Solution s;
    vector<int> v1 = {1,5,8}, v2 = {2,3,6,9};
-   cout << (s.findMedianSortedArrays(v1, v2));
+   cout<<s.findMedianSortedArrays(v1, v2);
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------
