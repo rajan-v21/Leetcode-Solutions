@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        int left = 0, right = 0;
+        deque<int> q;
+        vector<int> res;
+        while(right < nums.size()){
+            //monotonic check in loop
+            while(!q.empty() && q.back() < nums[right]) q.pop_back();
+            q.push_back(nums[right]);
+            if(right - left + 1 == k){
+                res.push_back(q.front());
+                if(nums[left] == q.front()) q.pop_front();
+                left++;
+            }
+            if(right - left + 1 < k) right++;
+        }
+        return res;
+    }
+};
+
+int main(){
+	Solution s;
+    vector<int> v = {-1,3,1,2,0,5};
+    int k = 3;
+    vector<int> sol = s.maxSlidingWindow(v, k);
+    for(int i=0; i < sol.size(); i++) cout<<sol[i]<<" ";
+}
+
+/*
+TC: O(n) SC: O(n)
+
+Intuition:
+
+1. Traverse through array
+check the array monotically using deque(queue cant be used for monotonic check
+bcz queue only allow FIFO and we are poping ele from back in this)
+by checking and poping any no smaller than nums's right past last ele of deque
+and keep travesing towards right until window hits.
+then get the first element of the deque which will always be max in window.
+now whenever we are sliding our window we will check that our window's start 
+(nums's left) is going past the max element in deque (first ele of deque), 
+if yes that means our max element in deque (first ele of deque) wont be max in
+new window, so discard it by poping from deque
+then we set start of new window and repeat until right hits n.
+*/
