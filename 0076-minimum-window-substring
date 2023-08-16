@@ -5,8 +5,10 @@ class Solution {
 public:
     string minWindow(string s, string t) {
         if(s.size() < t.size()) return "";
+
         unordered_map<char, int> ump;
         for(auto ch:t) ump[ch]++;
+
         int left = 0, right = 0, start = 0;
         int count = ump.size();
         int minLen = INT_MAX;
