@@ -8,7 +8,6 @@ public:
         deque<int> q;
         vector<int> res;
         while(right < nums.size()){
-            //monotonic check in loop
             while(!q.empty() && q.back() < nums[right]) q.pop_back();
             q.push_back(nums[right]);
             if(right - left + 1 == k){
@@ -35,7 +34,20 @@ TC: O(n) SC: O(n)
 
 Intuition:
 
-1. Traverse through array
+Intuition is to keep track of first element in deque, which will always be the maximum element found up till the traverse
+and checking every new element at right pointer with the last element of deque and removing all the elements from back untill
+current element is less than last element in deque to maintain the monotonicity of queue i.e to keep element in deque in
+non-decreasing order.
+For eg: if deque contains elements 4 3 0 -2 and if the element at right pointer of vector nums turns to be 3 then we remove
+all the elements up till 0 and insert 2 at last. Then elements in deque will be 4 3 2.
+
+until the right pointer hits window.
+1. Traverse towards right and keep inserting the element in the deque if the element on right pointer is smaller than last
+element in deque.
+2. But if we encounter any element bigger than the last element of deque, we start popping all the elements from behind to
+maintain the monotonicity of deque.
+3. We also check that is the length  at each right
+
 check the array monotically using deque(queue cant be used for monotonic check
 bcz queue only allow FIFO and we are poping ele from back in this)
 by checking and poping any no smaller than nums's right past last ele of deque
