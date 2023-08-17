@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        int max = 0, t_weight = 0;
+        for(int i = 0; i<weights.size(); i++){
+            t_weight += weights[i];
+            if(weights[i]>max) max = weights[i];
+        }
+        if(days == weights.size()) return max;
+        int minCap = max, maxCap = t_weight;
+        while(minCap <= maxCap){
+            int reqCap = (minCap + maxCap)/2, load = 0, t_days = 0;
+            for(int i = 0; i < weights.size() && t_days <= days; i++){
+                load += weights[i];
+                if(load > reqCap){
+                    t_days++;
+                    load = weights[i];
+                }
+            }
+            t_days++;
+            if(t_days > days){
+                //if total days is taking more than given days
+                //means we have to increase load
+                minCap = reqCap + 1;
+            }
+            else maxCap = reqCap - 1;
+        }
+        return minCap;
+    }
+};
+
+int main(){
+	Solution s;
+	vector<int> v = {3,2,2,4,1,4};
+    int days = 3;
+	cout<<s.shipWithinDays(v, days);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------
+TC: O(n*log(w)) SC: O(1)
+w -> sum of all weights
+
+Intuition:
+
+1. 
+---------------------------------------------------------------------------------------------------------------------------*/
