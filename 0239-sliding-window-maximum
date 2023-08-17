@@ -25,8 +25,7 @@ int main(){
 	Solution s;
     vector<int> v = {-1,3,1,2,0,5};
     int k = 3;
-    vector<int> sol = s.maxSlidingWindow(v, k);
-    for(int i=0; i < sol.size(); i++) cout<<sol[i]<<" ";
+    for(int i=0; i < s.maxSlidingWindow(v, k).size(); i++) cout<<s.maxSlidingWindow(v, k)[i]<<" ";
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------
