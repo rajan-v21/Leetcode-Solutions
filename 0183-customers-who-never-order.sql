@@ -20,8 +20,8 @@ Intuition:
 1. We need names of all the customers who never ordered anything and print result under 'Customer' column.
 2. So we select name of all the customers as customers from customer table and perform left join with Orders table.
 (LEFT (OUTER) JOIN : Returns all records from the left table, and the matched records from the right table.)
-3. And lastly, we retrieve data using ON clause providing a pseudo foreign key i.e a common id present in both the tables with 
-given condition using WHERE clause.
+3. And lastly, we retrieve data using ON clause providing a foreign key (common id) present in both the tables with given 
+condition using WHERE clause.
 4. Remember when we are using left join it joins customerId of orders table to its respective cutomer's id and as not all 
 customers are not ordering, some customer's customerId will be null. And those are the customers we want.
     For eg: +------+--------+--------------+
