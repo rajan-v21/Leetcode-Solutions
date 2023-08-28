@@ -8,7 +8,7 @@ JOIN Employee AS mgr
 ON emp.managerId = mgr.id AND emp.salary > mgr.salary;
 
 /*-----------------------------------------------------------------------------------------------------------------------------
-TC: O(n) SC: O(1)
+TC: O(n) SC: O(1) [for running query]
 
 Intuition:
 
