@@ -1,3 +1,7 @@
+CREATE TABLE Employee (id INT, name VARCHAR(10), salary INT, managerId INT);
+INSERT INTO Employee 
+VALUES ROW(1, Joe, 70000, 3), ROW(2, Henry, 80000, 4), ROW(3, Sam, 60000, Null), ROW(4, Max, 90000, Null);
+
 SELECT emp.name AS Employee
 FROM Employee AS emp
 JOIN Employee AS mgr
