@@ -9,7 +9,7 @@ ORDER BY COUNT(customer_number)
 DESC LIMIT 1;
 
 /*------------------------------------------------------------------------------------------------------------------------------
-TC: O(n) SC: O(1) [for running query]
+TC: O(nlog(n)) SC: O(1) [for running query]
 
 Intuition:
 
