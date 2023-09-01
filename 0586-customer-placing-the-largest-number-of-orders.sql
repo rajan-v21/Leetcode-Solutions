@@ -1,6 +1,6 @@
 CREATE TABLE Orders (order_number INT, customer_number INT)
 INSERT INTO Orders
-VALUE ROW(1, 1), ROW(2, 2), ROW(3, 3), ROW(4, 3);
+VALUES ROW(1, 1), ROW(2, 2), ROW(3, 3), ROW(4, 3);
 
 SELECT customer_number 
 FROM Orders
